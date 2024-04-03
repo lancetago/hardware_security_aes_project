@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Tue Mar 12 17:21:11 2024
+# Process ID: 9702
+# Current directory: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new
+# Command line: vivado
+# Log file: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/vivado.log
+# Journal file: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.xpr
+update_compile_order -fileset sources_1
+add_files -norecurse /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/regs.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close [ open /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd w ]
+add_files /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd
+update_compile_order -fileset sources_1
+close [ open /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/add_round_key.vhd w ]
+add_files /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/add_round_key.vhd
+update_compile_order -fileset sources_1
+close [ open /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/sub_bytes.vhd w ]
+add_files /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/sub_bytes.vhd
+update_compile_order -fileset sources_1

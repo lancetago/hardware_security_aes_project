@@ -1,0 +1,40 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Tue Mar 12 17:21:11 2024
+# Process ID: 9702
+# Current directory: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new
+# Command line: vivado
+# Log file: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/vivado.log
+# Journal file: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.xpr
+INFO: [Project 1-313] Project file moved from '/home/lance/Documents/Hardware Security/hardware_security_aes_project' since last save.
+WARNING: [filemgmt 56-2] Default IP Output Path : Could not find the directory '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.gen/sources_1', nor could it be found using path '/home/lance/Documents/Hardware Security/hardware_security_aes_project/hardware_security_aes_project.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2021.1/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+update_compile_order -fileset sources_1
+add_files -norecurse /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/regs.vhd
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close [ open /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd w ]
+add_files /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd
+update_compile_order -fileset sources_1
+close [ open /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/add_round_key.vhd w ]
+add_files /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/add_round_key.vhd
+update_compile_order -fileset sources_1
+close [ open /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/sub_bytes.vhd w ]
+add_files /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/sub_bytes.vhd
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 12 18:13:06 2024...

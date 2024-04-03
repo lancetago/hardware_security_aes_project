@@ -1,0 +1,231 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Sat Mar 23 16:35:27 2024
+# Process ID: 301049
+# Current directory: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new
+# Command line: vivado
+# Log file: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/vivado.log
+# Journal file: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.xpr
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/Xilinx/Vivado/2021.1/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+update_compile_order -fileset sources_1
+set_property top aes_encryption_top [current_fileset]
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+update_compile_order -fileset sources_1
+file mkdir /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sim_1/new
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+close [ open /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sim_1/new/aes_encryption_top_tb.vhd w ]
+add_files -fileset sim_1 /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sim_1/new/aes_encryption_top_tb.vhd
+update_compile_order -fileset sim_1
+set_property top aes_encryption_top_tb [get_filesets sim_1]
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'aes_encryption_top_tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2021.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'aes_encryption_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj aes_encryption_top_tb_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/add_round_key.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'add_round_key'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'aes_encryption_top'
+ERROR: [VRFC 10-2989] 'o_ciphertext' is not declared [/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd:93]
+ERROR: [VRFC 10-3782] unit 'behavioral' ignored due to previous errors [/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd:16]
+INFO: [VRFC 10-3070] VHDL file '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd' ignored due to errors
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim/xvhdl.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim/xvhdl.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'aes_encryption_top_tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2021.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'aes_encryption_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj aes_encryption_top_tb_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/add_round_key.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'add_round_key'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/aes_encryption_top.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'aes_encryption_top'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/controller.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'controller'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/key_schedule.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'key_schedule'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/mix_columns.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mix_columns'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/mix_single_column.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'mix_single_column'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/regs.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'regs'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/s_box.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 's_box'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/shift_rows.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'shift_rows'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/sub_bytes.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'sub_bytes'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sources_1/new/xtime.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'xtime'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/sim_1/new/aes_encryption_top_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'aes_encryption_top_tb'
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+xelab -wto 0d2a92f51358401f968283247f9b66a7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot aes_encryption_top_tb_behav xil_defaultlib.aes_encryption_top_tb -log elaborate.log
+Vivado Simulator v2021.1
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2021.1/bin/unwrapped/lnx64.o/xelab -wto 0d2a92f51358401f968283247f9b66a7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot aes_encryption_top_tb_behav xil_defaultlib.aes_encryption_top_tb -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.regs [\regs(size=128)\]
+Compiling architecture behavioral of entity xil_defaultlib.add_round_key [add_round_key_default]
+Compiling architecture behavioral of entity xil_defaultlib.s_box [s_box_default]
+Compiling architecture behavioral of entity xil_defaultlib.sub_bytes [sub_bytes_default]
+Compiling architecture behavioral of entity xil_defaultlib.shift_rows [shift_rows_default]
+Compiling architecture behavioral of entity xil_defaultlib.xtime [xtime_default]
+Compiling architecture behavioral of entity xil_defaultlib.mix_single_column [mix_single_column_default]
+Compiling architecture behavioral of entity xil_defaultlib.mix_columns [mix_columns_default]
+Compiling architecture behavioral of entity xil_defaultlib.regs [\regs(size=8)\]
+Compiling architecture behavioral of entity xil_defaultlib.controller [controller_default]
+Compiling architecture behavioral of entity xil_defaultlib.key_schedule [key_schedule_default]
+Compiling architecture behavioral of entity xil_defaultlib.aes_encryption_top [aes_encryption_top_default]
+Compiling architecture behavioral of entity xil_defaultlib.aes_encryption_top_tb
+Built simulation snapshot aes_encryption_top_tb_behav
+
+****** Webtalk v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim/xsim.dir/aes_encryption_top_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Mar 23 17:21:38 2024...
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "aes_encryption_top_tb_behav -key {Behavioral:sim_1:Functional:aes_encryption_top_tb} -tclbatch {aes_encryption_top_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source aes_encryption_top_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'aes_encryption_top_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 7878.555 ; gain = 60.832 ; free physical = 867 ; free virtual = 9322
+run 40 ms
+run: Time (s): cpu = 00:00:36 ; elapsed = 00:00:39 . Memory (MB): peak = 7880.555 ; gain = 2.000 ; free physical = 407 ; free virtual = 9335
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'aes_encryption_top_tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2021.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'aes_encryption_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj aes_encryption_top_tb_vhdl.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'aes_encryption_top_tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+xelab -wto 0d2a92f51358401f968283247f9b66a7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot aes_encryption_top_tb_behav xil_defaultlib.aes_encryption_top_tb -log elaborate.log
+Vivado Simulator v2021.1
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2021.1/bin/unwrapped/lnx64.o/xelab -wto 0d2a92f51358401f968283247f9b66a7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot aes_encryption_top_tb_behav xil_defaultlib.aes_encryption_top_tb -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Time resolution is 1 ps
+run 40 ms
+run: Time (s): cpu = 00:00:38 ; elapsed = 00:00:33 . Memory (MB): peak = 7880.555 ; gain = 0.000 ; free physical = 223 ; free virtual = 9214
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'aes_encryption_top_tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from '/tools/Xilinx/Vivado/2021.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'aes_encryption_top_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+xvhdl --incr --relax -prj aes_encryption_top_tb_vhdl.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-12493] Simulation top is 'aes_encryption_top_tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.sim/sim_1/behav/xsim'
+xelab -wto 0d2a92f51358401f968283247f9b66a7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot aes_encryption_top_tb_behav xil_defaultlib.aes_encryption_top_tb -log elaborate.log
+Vivado Simulator v2021.1
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: /tools/Xilinx/Vivado/2021.1/bin/unwrapped/lnx64.o/xelab -wto 0d2a92f51358401f968283247f9b66a7 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot aes_encryption_top_tb_behav xil_defaultlib.aes_encryption_top_tb -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+Time resolution is 1 ps
+run 40 ms
+run: Time (s): cpu = 00:26:29 ; elapsed = 00:27:03 . Memory (MB): peak = 7899.867 ; gain = 0.000 ; free physical = 196 ; free virtual = 10109
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Mar 23 21:41:16 2024...
