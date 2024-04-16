@@ -13,17 +13,6 @@ port (
 end controller;
 
 architecture Behavioral of controller is
-
-    component regs is
-    generic (
-        size : positive
-    );
-    port (
-        i_clk : in std_logic;
-        i_data : in std_logic_vector(size-1 downto 0);
-        o_data : out std_logic_vector(size-1 downto 0)
-    );
-    end component;
     
     component xtime is
     port (
@@ -32,43 +21,42 @@ architecture Behavioral of controller is
     );
     end component;
 
-    signal w_in, w_out, w_feedback : std_logic_vector(7 downto 0) := (others => '0');
+    signal w_temp, w_feedback : std_logic_vector(7 downto 0) := (others => '0');
 
 begin
-
-    w_in <= x"01" when i_rst = '0' else w_feedback;
     
-    u1 : regs
-    generic map (
-        size => 8
-    )
-    port map (
-        i_clk => i_clk,
-        i_data => w_in,
-        o_data => w_out
-    );
+    process(i_clk) is
+    begin
+        if (rising_edge(i_clk)) then
+            if (i_rst = '0') then
+                w_temp <= x"01";
+            else
+                w_temp <= w_feedback;
+            end if;
+        end if;
+    end process;
     
-    u2 : xtime
+    u1 : xtime
     port map (
-        i_byte => w_out,
+        i_byte => w_temp,
         o_byte => w_feedback
     );
     
-    process(w_out)
+    process(w_temp)
     begin
-        if (w_out = x"36") then
+        if (w_temp = x"36") then
             o_is_final_round <= '1';
         else
             o_is_final_round <= '0';
         end if;
         
-        if (w_out = x"6c") then
+        if (w_temp = x"6c") then
             o_done <= '1';
         else
             o_done <= '0';
         end if;
     end process;
     
-    o_rcon <= w_out;
+    o_rcon <= w_temp;
 
 end Behavioral;

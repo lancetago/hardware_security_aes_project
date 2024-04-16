@@ -15,8 +15,7 @@ end aes_encryption_top;
 
 architecture Behavioral of aes_encryption_top is
 
-    signal w_regs_in : std_logic_vector(127 downto 0);
-    signal w_regs_out : std_logic_vector(127 downto 0);
+    signal w_temp : std_logic_vector(127 downto 0);
     signal w_sbox_in : std_logic_vector(127 downto 0);
     signal w_sbox_out : std_logic_vector(127 downto 0);
     signal w_shift_rows_out : std_logic_vector(127 downto 0);
@@ -74,63 +73,51 @@ architecture Behavioral of aes_encryption_top is
         o_data : out std_logic_vector(127 downto 0)
     );
     end component;
-    
-    component regs is
-    generic (
-        size : positive
-    );
-    port (
-        i_clk : in std_logic;
-        i_data : in std_logic_vector(size-1 downto 0);
-        o_data : out std_logic_vector(size-1 downto 0)
-    );
-    end component;
 
 begin
 
-    w_regs_in <= i_plaintext when i_rst = '0' else w_feedback;
     w_feedback <= w_mix_columns_out when w_sel = '0' else w_shift_rows_out;
     o_ciphertext <= w_sbox_in;
     
-    -- Register for storing states
-    u1 : regs
-    generic map (
-        size => 128
-    )
-    port map (
-        i_clk => i_clk,
-        i_data => w_regs_in,
-        o_data => w_regs_out
-    );
+    process(i_clk) is
+    begin
+        if (rising_edge(i_clk)) then
+            if (i_rst = '0') then
+                w_temp <= i_plaintext;
+            else
+                w_temp <= w_feedback;
+            end if;
+        end if;
+    end process;
     
     -- Functionality for each round
-    u2 : add_round_key
+    u1 : add_round_key
     port map (
-        i_state => w_regs_out,
+        i_state => w_temp,
         i_subkey => w_round_key,
         o_state => w_sbox_in
     );
     
-    u3 : sub_bytes
+    u2 : sub_bytes
     port map (
         i_data => w_sbox_in,
         o_data => w_sbox_out
     );
     
-    u4 : shift_rows
+    u3 : shift_rows
     port map (
         i_data => w_sbox_out,
         o_data => w_shift_rows_out
     );
     
-    u5 : mix_columns
+    u4 : mix_columns
     port map (
         i_data => w_shift_rows_out,
         o_data => w_mix_columns_out
     );
     
     -- Controller for determining if we're on the final round or not
-    u6 : controller
+    u5 : controller
     port map (
         i_clk => i_clk,
         i_rst => i_rst,
@@ -140,7 +127,7 @@ begin
     );
     
     -- Key schedule
-    u7 : key_schedule
+    u6 : key_schedule
     port map (
         i_clk => i_clk,
         i_rst => i_rst,

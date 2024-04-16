@@ -49,10 +49,6 @@ begin
 
     -- simulation process
     process begin
-        		-- Some test vectors taken from pages 215, and 216 of the main AES specification		
-		--p = 3243f6a8885a308d313198a2e0370734
-		--k = 2b7e151628aed2a6abf7158809cf4f3c		
-		--c = 3925841d02dc09fbdc118597196a0b32
 		-- Initialize Inputs
 		i_plaintext <= x"340737e0a29831318d305a88a8f64332";
 		i_key <= x"3c4fcf098815f7aba6d2ae2816157e2b";
@@ -70,10 +66,7 @@ begin
 		report "---------- Output must be: -------";
 		report "320b6a19978511dcfb09dc021d842539";
 		--------------------------------------------
-		-- Initialize Inputs
-		--p = 00000000000000000000000000000000
-		--k = 00000000000000000000000000000000
-		--c = 66E94BD4EF8A2C3B884CFA59CA342B2E		
+		-- Initialize Inputs	
 		i_plaintext <= x"00000000000000000000000000000000";
 		i_key <= x"00000000000000000000000000000000";
 		i_rst <= '0';
@@ -91,10 +84,7 @@ begin
 		report "2e2b34ca59fa4c883b2c8aefd44be966";
 		--------------------------------------------
 		-- A test vector taken from: https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Standards-and-Guidelines/documents/examples/AES_Core128.pdf
-		-- Initialize Inputs
-		--p = 6BC1BEE2 2E409F96 E93D7E11 7393172A
-		--k = 2B7E1516 28AED2A6 ABF71588 09CF4F3C
-		--c = 3AD77BB4 0D7A3660 A89ECAF3 2466EF97		
+		-- Initialize Inputs	
 		i_plaintext <= x"2a179373117e3de9969f402ee2bec16b";
 		i_key <= x"3c4fcf098815f7aba6d2ae2816157e2b";
 		i_rst <= '0';

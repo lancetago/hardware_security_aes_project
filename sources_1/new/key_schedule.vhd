@@ -18,17 +18,6 @@ end key_schedule;
 
 architecture Behavioral of key_schedule is
 
-    component regs is
-    generic (
-        size : positive
-    );
-    port (
-        i_clk : in std_logic;
-        i_data : in std_logic_vector(size-1 downto 0);
-        o_data : out std_logic_vector(size-1 downto 0)
-    );
-    end component;
-
     component key_schedule_round is
     port (
         i_subkey : in std_logic_vector(127 downto 0);
@@ -38,30 +27,28 @@ architecture Behavioral of key_schedule is
     end component;
 
     signal w_feedback : std_logic_vector(127 downto 0);
-    signal w_regs_in : std_logic_vector(127 downto 0);
-    signal w_regs_out : std_logic_vector(127 downto 0);
+    signal w_temp : std_logic_vector(127 downto 0);
 
 begin
-    
-    w_regs_in <= i_key when i_rst = '0' else w_feedback;
 
-    u1 : regs
-    generic map (
-        size => 128
-    )
+    process(i_clk) is
+    begin
+        if (rising_edge(i_clk)) then
+            if (i_rst = '0') then
+                w_temp <= i_key;
+            else
+                w_temp <= w_feedback;
+            end if;
+        end if;
+    end process;
+
+    u1 : key_schedule_round
     port map (
-        i_clk => i_clk,
-        i_data => w_regs_in,
-        o_data => w_regs_out 
-    );
-    
-    u2 : key_schedule_round
-    port map (
-        i_subkey => w_regs_out,
+        i_subkey => w_temp,
         i_rcon => i_round_const,
         o_next_subkey => w_feedback
     );
     
-    o_round_key <= w_regs_out;
+    o_round_key <= w_temp;
 
 end Behavioral;
