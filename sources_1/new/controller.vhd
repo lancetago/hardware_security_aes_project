@@ -21,7 +21,7 @@ architecture Behavioral of controller is
     );
     end component;
 
-    signal w_temp, w_feedback : std_logic_vector(7 downto 0) := (others => '0');
+    signal r_temp, w_feedback : std_logic_vector(7 downto 0) := (others => '0');
 
 begin
     
@@ -29,34 +29,34 @@ begin
     begin
         if (rising_edge(i_clk)) then
             if (i_rst = '0') then
-                w_temp <= x"01";
+                r_temp <= x"01";
             else
-                w_temp <= w_feedback;
+                r_temp <= w_feedback;
             end if;
         end if;
     end process;
     
     u1 : xtime
     port map (
-        i_byte => w_temp,
+        i_byte => r_temp,
         o_byte => w_feedback
     );
     
-    process(w_temp)
+    process(r_temp)
     begin
-        if (w_temp = x"36") then
+        if (r_temp = x"36") then
             o_is_final_round <= '1';
         else
             o_is_final_round <= '0';
         end if;
         
-        if (w_temp = x"6c") then
+        if (r_temp = x"6c") then
             o_done <= '1';
         else
             o_done <= '0';
         end if;
     end process;
     
-    o_rcon <= w_temp;
+    o_rcon <= r_temp;
 
 end Behavioral;

@@ -3,19 +3,19 @@ library IEEE;
     use IEEE.NUMERIC_STD.ALL;
 
 entity aes_encryption_top is
-port (
-    i_clk : in std_logic;
-    i_rst : in std_logic;
-    i_key : in std_logic_vector(127 downto 0);
-    i_plaintext : in std_logic_vector(127 downto 0);
-    o_ciphertext : out std_logic_vector(127 downto 0);
-    o_done : out std_logic
-);
+    port (
+        i_clk : in std_logic;
+        i_rst : in std_logic;
+        i_key : in std_logic_vector(127 downto 0);
+        i_plaintext : in std_logic_vector(127 downto 0);
+        o_ciphertext : out std_logic_vector(127 downto 0);
+        o_done : out std_logic
+    );
 end aes_encryption_top;
 
 architecture Behavioral of aes_encryption_top is
 
-    signal w_temp : std_logic_vector(127 downto 0);
+    signal r_temp : std_logic_vector(127 downto 0);
     signal w_sbox_in : std_logic_vector(127 downto 0);
     signal w_sbox_out : std_logic_vector(127 downto 0);
     signal w_shift_rows_out : std_logic_vector(127 downto 0);
@@ -83,9 +83,9 @@ begin
     begin
         if (rising_edge(i_clk)) then
             if (i_rst = '0') then
-                w_temp <= i_plaintext;
+                r_temp <= i_plaintext;
             else
-                w_temp <= w_feedback;
+                r_temp <= w_feedback;
             end if;
         end if;
     end process;
@@ -93,7 +93,7 @@ begin
     -- Functionality for each round
     u1 : add_round_key
     port map (
-        i_state => w_temp,
+        i_state => r_temp,
         i_subkey => w_round_key,
         o_state => w_sbox_in
     );

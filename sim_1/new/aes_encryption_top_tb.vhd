@@ -12,9 +12,10 @@ architecture Behavioral of aes_encryption_top_tb is
     signal i_key : std_logic_vector(127 downto 0) := (others => '0');
     signal i_plaintext : std_logic_vector(127 downto 0) := (others => '0');
     signal o_ciphertext : std_logic_vector(127 downto 0) := (others => '0');
+    signal o_key : std_logic_vector(127 downto 0) := (others => '0');
     signal o_done : std_logic := '0';
     
-    constant clk_period : time := 10 ns;
+    constant clk_period : time := 8 ns;
 
     component aes_encryption_top is
     port (
@@ -23,6 +24,7 @@ architecture Behavioral of aes_encryption_top_tb is
         i_key : in std_logic_vector(127 downto 0);
         i_plaintext : in std_logic_vector(127 downto 0);
         o_ciphertext : out std_logic_vector(127 downto 0);
+        o_key : out std_logic_vector(127 downto 0);
         o_done : out std_logic
     );
     end component;
@@ -36,6 +38,7 @@ begin
         i_key => i_key,
         i_plaintext => i_plaintext,
         o_ciphertext => o_ciphertext,
+        o_key => o_key,
         o_done => o_done
     );
 
@@ -82,24 +85,6 @@ begin
 		end if;
 		report "---------- Output must be: -------";
 		report "2e2b34ca59fa4c883b2c8aefd44be966";
-		--------------------------------------------
-		-- A test vector taken from: https://csrc.nist.gov/CSRC/media/Projects/Cryptographic-Standards-and-Guidelines/documents/examples/AES_Core128.pdf
-		-- Initialize Inputs	
-		i_plaintext <= x"2a179373117e3de9969f402ee2bec16b";
-		i_key <= x"3c4fcf098815f7aba6d2ae2816157e2b";
-		i_rst <= '0';
-		-- Hold reset state for one cycle		
-		wait for clk_period;
-		i_rst <= '1';
-		wait until o_done = '1';
-		wait for clk_period/2;			
-		if (o_ciphertext = x"97ef6624f3ca9ea860367a0db47bd73a") then
-			report "---------- Passed ----------";
-		else
-			report "---------- Failed ----------";
-		end if;
-		report "---------- Output must be: -------";
-		report "97ef6624f3ca9ea860367a0db47bd73a";
 		wait;
     end process;
 

@@ -27,7 +27,7 @@ architecture Behavioral of key_schedule is
     end component;
 
     signal w_feedback : std_logic_vector(127 downto 0);
-    signal w_temp : std_logic_vector(127 downto 0);
+    signal r_temp : std_logic_vector(127 downto 0);
 
 begin
 
@@ -35,20 +35,20 @@ begin
     begin
         if (rising_edge(i_clk)) then
             if (i_rst = '0') then
-                w_temp <= i_key;
+                r_temp <= i_key;
             else
-                w_temp <= w_feedback;
+                r_temp <= w_feedback;
             end if;
         end if;
     end process;
 
     u1 : key_schedule_round
     port map (
-        i_subkey => w_temp,
+        i_subkey => r_temp,
         i_rcon => i_round_const,
         o_next_subkey => w_feedback
     );
     
-    o_round_key <= w_temp;
+    o_round_key <= r_temp;
 
 end Behavioral;
