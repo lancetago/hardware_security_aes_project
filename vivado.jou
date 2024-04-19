@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Tue Apr 16 03:43:09 2024
+# Process ID: 21162
+# Current directory: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs
+# Command line: vivado
+# Log file: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/vivado.log
+# Journal file: /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.srcs/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/lance/Documents/Hardware_Security/hardware_security_aes_project/hardware_security_aes_project.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+source aes_encryption_top_tb.tcl
+run 350 ns
+close_sim

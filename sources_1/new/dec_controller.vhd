@@ -23,7 +23,7 @@ architecture Behavioral of dec_controller is
 begin
 
     process(i_clk) is
-        variable i : integer range 0 to 11 := 0;
+        variable i : integer range 0 to 10 := 0;
     begin
         if (rising_edge(i_clk)) then
             if (i_rst = '0') then

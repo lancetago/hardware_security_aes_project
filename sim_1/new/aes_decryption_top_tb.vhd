@@ -1,6 +1,7 @@
 library IEEE;
     use IEEE.STD_LOGIC_1164.ALL;
     use IEEE.NUMERIC_STD.ALL;
+    use STD.ENV.FINISH;
 
 entity aes_decryption_top_tb is
 
@@ -14,6 +15,7 @@ architecture Testbench of aes_decryption_top_tb is
             i_key : in std_logic_vector(127 downto 0);
             i_ciphertext : in std_logic_vector(127 downto 0);
             o_plaintext : out std_logic_vector(127 downto 0);
+            o_key : out std_logic_vector(127 downto 0);
             o_done : out std_logic
         );
     end component;
@@ -22,7 +24,7 @@ architecture Testbench of aes_decryption_top_tb is
     signal i_rst : std_logic := '0';
     signal i_key : std_logic_vector(127 downto 0) := (others => '0');
     signal i_ciphertext : std_logic_vector(127 downto 0) := (others => '0');
-    
+    signal o_key : std_logic_vector(127 downto 0) := (others => '0');
     signal o_plaintext : std_logic_vector(127 downto 0) := (others => '0');
     signal o_done : std_logic := '0';
     
@@ -37,6 +39,7 @@ begin
         i_key => i_key,
         i_ciphertext => i_ciphertext,
         o_plaintext => o_plaintext,
+        o_key => o_key,
         o_done => o_done
     );
     
@@ -64,8 +67,16 @@ begin
 			report "---------- Failed ----------";
 		end if;
 		report "---------- Output must be: -------";
-		report "340737e0a29831318d305a88a8f64332";		
-
+		report "340737e0a29831318d305a88a8f64332";	
+		
+        if (o_key = x"3c4fcf098815f7aba6d2ae2816157e2b") then
+		    report "---------- Passed ----------";
+		else
+		    report "---------- Failed ----------";
+		end if;	
+		report "---------- Key must be: ----------";
+		report "3c4fcf098815f7aba6d2ae2816157e2b";
+		
 		i_ciphertext <= x"2e2b34ca59fa4c883b2c8aefd44be966";
 		i_key <= x"8e188f6fcf51e92311e2923ecb5befb4";
 		i_rst <= '0';
@@ -81,7 +92,17 @@ begin
 		end if;
 		report "---------- Output must be: -------";
 		report "00000000000000000000000000000000";
-		wait;
+		
+        if (o_key = x"00000000000000000000000000000000") then
+		    report "---------- Passed ----------";
+		else
+		    report "---------- Failed ----------";
+		end if;	
+		report "---------- Key must be: ----------";
+		report "00000000000000000000000000000000";
+		
+		report "CALLING FINISH - END OF SIMULATION";
+		finish;
     end process;
 
 end Testbench;

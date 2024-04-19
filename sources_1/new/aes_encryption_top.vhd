@@ -9,6 +9,7 @@ entity aes_encryption_top is
         i_key : in std_logic_vector(127 downto 0);
         i_plaintext : in std_logic_vector(127 downto 0);
         o_ciphertext : out std_logic_vector(127 downto 0);
+        o_key : out std_logic_vector(127 downto 0);
         o_done : out std_logic
     );
 end aes_encryption_top;
@@ -78,6 +79,7 @@ begin
 
     w_feedback <= w_mix_columns_out when w_sel = '0' else w_shift_rows_out;
     o_ciphertext <= w_sbox_in;
+    o_key <= w_round_key;
     
     process(i_clk) is
     begin

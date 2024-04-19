@@ -9,6 +9,7 @@ entity aes_decryption_top is
         i_key : in std_logic_vector(127 downto 0);
         i_ciphertext : in std_logic_vector(127 downto 0);
         o_plaintext : out std_logic_vector(127 downto 0);
+        o_key : out std_logic_vector(127 downto 0);
         o_done : out std_logic
     );
 end aes_decryption_top;
@@ -75,6 +76,8 @@ architecture Behavioral of aes_decryption_top is
     signal w_first_round : std_logic;
 
 begin
+
+    o_key <= w_round_key;
     
     process(i_clk) is
     begin
